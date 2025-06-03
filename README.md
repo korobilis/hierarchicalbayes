@@ -1,5 +1,5 @@
 # hierarchicalbayes
-MATLAB code that demonstrates hierarchical priors for shrinkage and variable selection. Follows the monograph Korobilis, D. and Shimizu, K. (forthcoming), Bayesian Approaches to Shrinkage and Sparse Estimation. Foundations and Trends in Econometrics.
+MATLAB code that demonstrates hierarchical priors for shrinkage and variable selection. Follows the monograph Korobilis, D. and Shimizu, K. (2022), Bayesian Approaches to Shrinkage and Sparse Estimation. Foundations and Trends in Econometrics.
 
 A working paper version of that monograph is available here: https://www.dropbox.com/s/x5uobzgj16imar2/2021.11.25_BMD.pdf?dl=0.  Please cite this paper when using or referring to the MATLAB code.
 
