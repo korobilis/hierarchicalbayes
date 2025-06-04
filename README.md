@@ -118,33 +118,18 @@ run_factor_model_example.m
 
 ## Code Organization
 
-### Linear Regression Examples
-```matlab
-linear_regression/
-├── basic_shrinkage.m          % Basic ridge/LASSO comparison
-├── spike_slab.m               % Spike-and-slab priors
-├── horseshoe.m                % Horseshoe shrinkage
-└── global_local.m             % Global-local hierarchies
-```
-
-### Econometric Applications
-```matlab
-econometric_models/
-├── var_models/                % Vector autoregressions
-├── factor_models/             % Factor analysis
-├── tvp_regression/            % Time-varying parameters
-├── treatment_effects/         % Causal inference
-└── quantile_regression/       % Quantile models
-```
-
-### Utility Functions
-```matlab
-utilities/
-├── mcmc_samplers/             % MCMC algorithms
-├── variational_bayes/         % VB approximations
-├── prior_specifications/      % Prior distributions
-└── convergence_diagnostics/   % MCMC diagnostics
-```
+hierarchicalbayes/
+├── README.md                                    # Main repository overview
+├── Bayesian_Model_Determination.pdf            # Bayesian model determination strategies
+├── Manual.pdf                                  # Comprehensive user manual
+├── Techincal_Document.pdf                      # Technical methodologies and foundations
+├── BayesHDTE/                                  # Bayesian High-Dimensional Treatment Effects
+├── Causal Inference/                           # Confounder selection and causal models
+├── Linear Regression/                          # Linear regression with shrinkage priors
+├── Synthetic experiments/
+│   └── cond_vs_uncond/                        # Conditional vs unconditional model comparisons
+├── Time-varying parameter models/              # TVP model implementations
+└── VARs/                                       # Vector Autoregressive models with hierarchical priors
 
 ## Theoretical Background
 
