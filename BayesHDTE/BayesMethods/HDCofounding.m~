@@ -1,0 +1,71 @@
+% clear 
+% rng('default')
+% prior=5;
+% n=1000;p=10;sigmaX=1;
+% [y,T,X]=genData(n,p,sigmaX);
+% T_type='binary';
+function [BetaAllPost,GammaPost,Sigma2Post,ThetaPost,wj_final]=...
+    HDCofounding(y,X,T,activeX,...
+nsave,nburn,thin,...
+prior)
+p=size(X,2);
+
+% Estimation starts here 
+%%%%%%% 
+w=ones(p,1);%Initial value of weights
+
+% 0. Run LASSO of T on X 
+
+% 1. Run Empirical Bayes to calculate weights 
+[~,~,~,ThetaPost,Tau0Post,Tau1Post]=HDCofoundingGibbs(y,X,T,w,nsave,nburn,thin,prior);
+
+ThetaEst=mean(ThetaPost);
+Tau0Est=mean(mean(Tau0Post,2));
+Tau1Est=mean(mean(Tau1Post,2));
+% Tau0Est=mean(Tau0Post,2);
+% Tau1Est=mean(Tau1Post,2);
+
+% Choose wj_final as in Section 2.4 
+wj_vec=0:1/(2000-1):1;
+pStar=zeros(1,length(wj_vec));
+for ii=1:length(wj_vec)
+pStar(1,ii) = getPstar_normal(0, ThetaEst^wj_vec(ii), Tau0Est, Tau1Est);
+end 
+% pStar=zeros(p,length(wj_vec));
+% for ii=1:length(wj_vec)
+% pStar(p,ii) = getPstar_normal(0, ThetaEst^wj_vec(ii), Tau0Est, Tau1Est);
+% end 
+
+%figure;plot(wj_vec,pStar);xlabel('wj');ylabel('Pr(beta=0 is included)')
+% The smallest value of wj such that inclusion prob for beta_j=0 is less than 0.1
+%wj_final = wj_vec( find(pStar<0.1,1) );
+%fprintf(['\nw final=',num2str(wj_final)]);
+
+
+
+if sum(pStar<0.1)>0
+wj_final = wj_vec( find(pStar<0.1,1) );
+else % if pStar is not less than 0.1 for all wj's, just set it to one
+wj_final = 1;    
+end 
+
+ 
+% wj_final=zeros(j,1);
+% for j=1:p
+% wj_final(j) = wj_vec( find(pStar(j,:)<0.1,1) );
+% end 
+%fprintf(['\nw final=',num2str(mean(wj_final))]);
+
+if sum(activeX)==0
+w= ones(p,1);
+else 
+w= ones(p,1);
+w(activeX) = wj_final;
+%w(activeX) = wj_final(activeX);
+end 
+
+% 2. Do final analysis 
+[BetaAllPost,GammaPost,Sigma2Post,ThetaPost,~,~]=HDCofoundingGibbs(y,X,T,w,nsave,nburn,thin,prior);
+end 
+
+
