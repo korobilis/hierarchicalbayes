@@ -8,7 +8,14 @@ This repository contains MATLAB code that demonstrates hierarchical priors for s
 
 **DOI**: [10.1561/0800000041](http://dx.doi.org/10.1561/0800000041)
 
-**Abstract**: This monograph introduces readers to the world of Bayesian model determination by surveying modern shrinkage and variable selection algorithms and methodologies. Bayesian inference provides a natural probabilistic framework for quantifying uncertainty and learning about model parameters, which is particularly important for inference in modern high-dimensional models.
+**Abstract**: In all areas of human knowledge, datasets are increasing in both size and complexity, creating the need for richer statistical models. This trend is also true for economic data, where high-dimensional and nonlinear/noparametric inference is the norm in several fields
+of applied econometric work. The purpose of this paper is to introduce the reader to the realm of Bayesian model determination, by surveying modern shrinkage and variable selection algorithms and methodologies. Bayesian inference is a natural probabilistic framework for quantifying uncertainty and learning about model parameters, and this feature is particularly important for inference in modern models of high dimensions and increased complexity.
+
+We begin with a linear regression setting in order to introduce various classes of priors that lead to shrinkage/sparse estimators of comparable value to popular penalized likelihood estimators (e.g. ridge, lasso). We explore various methods of exact and approximate inference, and discuss their pros and cons. Finally, we explore how priors developed for the simple regression setting can be extended in a straightforward way to various classes of interesting econometric models. In particular, the following case-studies are considered, that demonstrate application of Bayesian shrinkage and variable selection strategies to popular econometric contexts: 
+i) vector autoregressive models; ii) factor models; iii) time-varying parameter regressions; iv) confounder selection in treatment effects
+models; and v) quantile regression models.
+A MATLAB package and an accompanying technical manual allow the reader to replicate many of the algorithms described in this review.
+
 
 ## Supporting Documents
 
