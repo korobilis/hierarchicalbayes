@@ -119,15 +119,15 @@ run_factor_model_example.m
 ## Code Organization
 
 hierarchicalbayes/
-├── README.md                                    # Main repository overview
+├── README.md                                   # Main repository overview
 ├── Bayesian_Model_Determination.pdf            # Bayesian model determination strategies
 ├── Manual.pdf                                  # Comprehensive user manual
 ├── Techincal_Document.pdf                      # Technical methodologies and foundations
 ├── BayesHDTE/                                  # Bayesian High-Dimensional Treatment Effects
 ├── Causal Inference/                           # Confounder selection and causal models
 ├── Linear Regression/                          # Linear regression with shrinkage priors
-├── Synthetic experiments/
-│   └── cond_vs_uncond/                        # Conditional vs unconditional model comparisons
+├── Synthetic experiments/                      # Simulation studies and comparisons
+│   └── cond_vs_uncond/                         # Conditional vs unconditional model comparisons
 ├── Time-varying parameter models/              # TVP model implementations
 └── VARs/                                       # Vector Autoregressive models with hierarchical priors
 
